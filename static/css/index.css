@@ -108,7 +108,7 @@ body {
 
 .results-carousel {
   overflow: hidden;
-  max-width: 400px; /* Reduced max-width to make carousel smaller */
+  max-width: 600px; /* Reduced max-width to make carousel smaller */
   margin: 0 auto; /* Center the carousel */
   position: relative; /* To position navigation arrows and indicators */
 }
