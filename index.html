@@ -342,6 +342,82 @@
 <!-- End Second Image Section -->
 
 
+  <!-- Results Section -->
+  <section class="section" id="results">
+    <div class="container">
+      <h2 class="title is-3">Results</h2>
+      <div class="content">
+        <p>
+          We first conduct the comparison of average accuracy across three independent runs for different datasets under clean and noisy client data scenarios. For the noisy data scenario, we consider 5 clean clients and 15 noisy clients with 100% noise level. Models are trained with FedAvg.
+        </p>
+        
+        <!-- Responsive Table -->
+        <div class="table-container">
+          <table class="table is-bordered is-striped is-hoverable is-fullwidth">
+            <thead>
+              <tr>
+                <th rowspan="2"><strong>Data</strong></th>
+                <th colspan="2"><strong>CIFAR10</strong></th>
+                <th colspan="2"><strong>CIFAR100</strong></th>
+                <th colspan="2"><strong>PathMNIST</strong></th>
+                <th colspan="2"><strong>FMNIST</strong></th>
+                <th colspan="2"><strong>EuroSAT</strong></th>
+                <th colspan="2"><strong>Tiny-ImageNet</strong></th>
+              </tr>
+              <tr>
+                <th><strong>IID</strong></th>
+                <th><strong>Non-IID</strong></th>
+                <th><strong>IID</strong></th>
+                <th><strong>Non-IID</strong></th>
+                <th><strong>IID</strong></th>
+                <th><strong>Non-IID</strong></th>
+                <th><strong>IID</strong></th>
+                <th><strong>Non-IID</strong></th>
+                <th><strong>IID</strong></th>
+                <th><strong>Non-IID</strong></th>
+                <th><strong>IID</strong></th>
+                <th><strong>Non-IID</strong></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Clean</strong></td>
+                <td>90.14%</td>
+                <td>85.52%</td>
+                <td>64.79%</td>
+                <td>62.36%</td>
+                <td>87.74%</td>
+                <td>82.55%</td>
+                <td>92.34%</td>
+                <td>89.37%</td>
+                <td>94.72%</td>
+                <td>95.12%</td>
+                <td>53.26%</td>
+                <td>52.88%</td>
+              </tr>
+              <tr>
+                <td><strong>Noisy</strong></td>
+                <td>78.62%</td>
+                <td>73.51%</td>
+                <td>44.58%</td>
+                <td>42.10%</td>
+                <td>54.80%</td>
+                <td>52.14%</td>
+                <td>88.14%</td>
+                <td>84.67%</td>
+                <td>67.39%</td>
+                <td>75.06%</td>
+                <td>24.32%</td>
+                <td>22.90%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+  <!-- End Results Section -->
 
 
 <!--BibTex citation -->
