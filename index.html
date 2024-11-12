@@ -247,36 +247,50 @@
 </section>
 <!-- End Problem Definition Section -->
 
-<!-- Image Carousel -->
-<section class="section">
-  <div class="container">
-    <!-- Carousel Container with Unique ID -->
-    <div id="Noises" class="carousel" data-autoplay="true" data-autoplay-speed="3000">
-      
-      <!-- Carousel Slide 1: Distortion Noise -->
-      <div class="carousel-item">
-        <figure class="image is-4by3">
-          <img src="static/images/Noise_Severity.jpg" alt="Example of distortion corruption (Contrast)" loading="lazy">
-        </figure>
-        <p class="subtitle has-text-left">
-          An example of distortion corruption (<strong>Contrast</strong>). We introduce image noise severity to quantify the extent of distortion in digital images. Severity levels are scaled from low to high, indicating the intensity of the noise. An illustration of different levels of image noise severity is shown in the above figure.
-        </p>
-      </div>
+  <!-- Image Carousel -->
+  <section class="section">
+    <div class="container">
+      <!-- Carousel Container with Unique ID -->
+      <div id="Noises" class="carousel" data-autoplay="true" data-autoplay-speed="3000">
+        
+        <!-- Carousel Slide 1: Distortion Noise -->
+        <div class="carousel-item">
+          <figure class="image is-4by3">
+            <img src="static/images/Noise_Severity.jpg" alt="Example of distortion corruption (Contrast)" class="carousel-image" loading="lazy">
+          </figure>
+          <p class="subtitle has-text-left">
+            An example of distortion corruption (<strong>Contrast</strong>). We introduce image noise severity to quantify the extent of distortion in digital images. Severity levels are scaled from low to high, indicating the intensity of the noise. An illustration of different levels of image noise severity is shown in the above figure.
+          </p>
+        </div>
 
-      <!-- Carousel Slide 2: Patch-based Noise -->
-      <div class="carousel-item">
-        <figure class="image is-4by3">
-          <img src="static/images/Patches_Image_Noise.jpg" alt="Example of patch-based data corruption" loading="lazy">
-        </figure>
-        <p class="subtitle has-text-left">
-          An example of patch-based data corruption. Here, specific data samples in the client's local dataset are substituted with such patches, while the corresponding labels remain unchanged, e.g., a random generative patch has an object label assigned to it.
-        </p>
-      </div>
+        <!-- Carousel Slide 2: Patch-based Noise -->
+        <div class="carousel-item">
+          <figure class="image is-4by3">
+            <img src="static/images/Patches_Image_Noise.jpg" alt="Example of patch-based data corruption" class="carousel-image" loading="lazy">
+          </figure>
+          <p class="subtitle has-text-left">
+            An example of patch-based data corruption. Here, specific data samples in the client's local dataset are substituted with such patches, while the corresponding labels remain unchanged, e.g., a random generative patch has an object label assigned to it.
+          </p>
+        </div>
 
+        <!-- Navigation Arrows -->
+        <button class="carousel-arrow carousel-arrow-prev">
+          &#10094;
+        </button>
+        <button class="carousel-arrow carousel-arrow-next">
+          &#10095;
+        </button>
+
+        <!-- Indicators -->
+        <div class="carousel-indicators">
+          <button class="indicator active"></button>
+          <button class="indicator"></button>
+        </div>
+
+      </div>
     </div>
-  </div>
-</section>
-<!-- End Image Carousel -->
+  </section>
+  <!-- End Image Carousel -->
 
 <!-- First Image Section -->
 <section class="section hero is-small is-light">
@@ -340,6 +354,9 @@
   </div>
 </section>
 <!-- End Second Image Section -->
+
+
+
 
 <!--BibTex citation -->
   <section class="section" id="BibTeX">

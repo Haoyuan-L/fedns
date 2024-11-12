@@ -1,23 +1,30 @@
+/* ------------------------------
+   General Styles
+------------------------------ */
+
+/* Base font for the entire body */
 body {
   font-family: 'Noto Sans', sans-serif;
 }
 
-
+/* Footer Icon Links */
 .footer .icon-link {
-    font-size: 25px;
-    color: #000;
+  font-size: 25px;
+  color: #000;
 }
 
+/* Link Block Margins */
 .link-block a {
-    margin-top: 5px;
-    margin-bottom: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
+/* Small Caps for .dnerf Class */
 .dnerf {
   font-variant: small-caps;
 }
 
-
+/* Teaser Section Styles */
 .teaser .hero-body {
   padding-top: 0;
   padding-bottom: 3rem;
@@ -27,13 +34,14 @@ body {
   font-family: 'Google Sans', sans-serif;
 }
 
-
+/* Publication Title Styles */
 .publication-title {
+  /* Add styles if needed */
 }
 
+/* Publication Banner Styles */
 .publication-banner {
-  max-height: parent;
-
+  max-height: 100%; /* Changed from 'parent' to a valid value */
 }
 
 .publication-banner video {
@@ -41,300 +49,114 @@ body {
   left: auto;
   top: auto;
   transform: none;
-  object-fit: fit;
+  object-fit: cover; /* Changed from 'fit' to 'cover' for better scaling */
 }
 
+/* Publication Header Hero Body */
 .publication-header .hero-body {
+  /* Add styles if needed */
 }
 
-.publication-title {
-    font-family: 'Google Sans', sans-serif;
-}
-
+/* Publication Authors Styles */
 .publication-authors {
-    font-family: 'Google Sans', sans-serif;
-}
-
-.publication-venue {
-    color: #555;
-    width: fit-content;
-    font-weight: bold;
-}
-
-.publication-awards {
-    color: #ff3860;
-    width: fit-content;
-    font-weight: bolder;
-}
-
-.publication-authors {
+  font-family: 'Google Sans', sans-serif;
 }
 
 .publication-authors a {
-   color: hsl(204, 86%, 53%) !important;
+  color: hsl(204, 86%, 53%) !important;
 }
 
 .publication-authors a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .author-block {
   display: inline-block;
 }
 
-.publication-banner img {
+/* Publication Venue Styles */
+.publication-venue {
+  color: #555;
+  width: fit-content;
+  font-weight: bold;
 }
 
-.publication-authors {
-  /*color: #4286f4;*/
+/* Publication Awards Styles */
+.publication-awards {
+  color: #ff3860;
+  width: fit-content;
+  font-weight: bolder;
 }
 
+/* Publication Video Container */
 .publication-video {
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding-bottom: 56.25%;
-
-    overflow: hidden;
-    border-radius: 10px !important;
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  overflow: hidden;
+  border-radius: 10px !important;
 }
 
 .publication-video iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
+/* Publication Body Images */
 .publication-body img {
+  /* Add styles if needed */
 }
 
-.results-carousel {
-  overflow: hidden;
+/* ------------------------------
+   Carousel Styles
+------------------------------ */
+
+/* Carousel Container Styling */
+.carousel {
+  position: relative; /* To position navigation arrows and indicators */
+  overflow: hidden; /* Prevents slides from overlapping */
 }
 
-.results-carousel .item {
-  margin: 5px;
-  overflow: hidden;
+/* Carousel Item Styling */
+.carousel-item {
   padding: 20px;
-  font-size: 0;
+  box-sizing: border-box;
+  /* Ensure each carousel item takes full width */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-
-.results-carousel video {
-  margin: 0;
-}
-
-.slider-pagination .slider-page {
-  background: #000000;
-}
-
-.eql-cntrb { 
-  font-size: smaller;
-}
-
 
 /* Carousel Image Styling */
 .carousel-image {
   width: 100%;
   height: auto;
+  object-fit: cover; /* Ensures the image covers the container without distortion */
   border-radius: 8px; /* Adds rounded corners */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
-  object-fit: cover; /* Ensures the image covers the container without distortion */
-  transition: transform 0.3s ease; /* Adds a hover effect */
-}
-
-.carousel-image:hover {
-  transform: scale(1.05); /* Slightly enlarges the image on hover */
-}
-
-/* Adjusting the Subtitle */
-.carousel .subtitle {
-  margin-top: 0.5rem;
-  font-size: 1rem;
-  color: #555; /* Adjusts the subtitle color */
-  font-weight: 600; /* Makes the text slightly bolder */
-}
-
-/* Ensuring Proper Spacing on Mobile Devices */
-@media (max-width: 768px) {
-  .carousel .column {
-    margin-bottom: 1rem;
-  }
-}
-
-/* Optional: Centering the Carousel Navigation Arrows */
-.carousel__button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(255, 255, 255, 0.7);
-  border: none;
-  padding: 0.5rem;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.carousel__button:hover {
-  background-color: rgba(255, 255, 255, 1);
-}
-
-/* Optional: Styling Pagination Dots */
-.carousel__pagination {
-  display: flex;
-  justify-content: center;
-  margin-top: 1rem;
-}
-
-.carousel__pagination .carousel__dot {
-  width: 10px;
-  height: 10px;
-  background-color: #ccc;
-  border-radius: 50%;
-  margin: 0 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.carousel__pagination .carousel__dot.is-active {
-  background-color: #555;
-}
-
-/* Styling the MathJax Equations */
-.math {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  font-size: 1.1rem; /* Adjusts the size of the equations */
-}
-
-/* Styling the Box Container for Equations */
-.box {
-  background-color: #f9f9f9; /* Light background for contrast */
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Styling the Problem Formulation Title */
-.box .title.is-4 {
-  margin-bottom: 1rem;
-  color: #333;
-}
-
-/* Adjusting Paragraphs Within the Box */
-.box p {
-  margin-top: 1rem;
-  font-size: 1rem;
-  color: #555;
-}
-
-
-/* Styling for Section Titles */
-.section .title.is-3 {
-  font-weight: 700; /* Makes the title bold */
-  color: #333; /* Dark color for better contrast */
-  margin-bottom: 1.5rem; /* Adds space below the title */
-}
-
-/* Styling for Section Images */
-.section-image {
-  width: 100%;
-  height: auto;
-  border-radius: 8px; /* Rounded corners for a polished look */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  object-fit: cover; /* Ensures the image covers its container without distortion */
-  transition: transform 0.3s ease; /* Smooth transition for hover effect */
-}
-
-.section-image:hover {
-  transform: scale(1.05); /* Slightly enlarges the image on hover */
-}
-
-/* New Styles for Small Images in Second Section */
-.small-image {
-  max-width: 80%; /* Reduces the maximum width to 80% of its container */
-  margin: 0 auto; /* Centers the image horizontally within its column */
-}
-
-/* Styling for Descriptive Subtitles */
-.section .subtitle {
-  margin-top: 1rem;
-  font-size: 1rem;
-  color: #555; /* Soft color for readability */
-  line-height: 1.5; /* Improved line spacing */
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .columns.is-centered.is-vcentered {
-    flex-direction: column;
-  }
-
-  .column.is-half {
-    width: 100%;
-    margin-bottom: 1rem;
-  }
-
-  .section-image {
-    margin-bottom: 1rem;
-  }
-
-  /* Adjusting Section Titles on Smaller Screens */
-  .section .title.is-3 {
-    font-size: 1.5rem; /* Smaller font size for mobile devices */
-  }
-
-  /* Adjusting Small Image Size on Smaller Screens */
-  .small-image {
-    max-width: 90%; /* Slightly larger on smaller screens for better visibility */
-  }
-}
-
-/* Carousel Navigation Arrows */
-.carousel-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  border: none;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  border-radius: 50%;
-  font-size: 1.5rem;
-  z-index: 10;
-}
-
-.carousel-arrow-prev {
-  left: 10px;
-}
-
-.carousel-arrow-next {
-  right: 10px;
-}
-
-/* Styling for Carousel Container */
-.carousel {
-  position: relative; /* To position navigation arrows and indicators */
-}
-
-/* Styling for Carousel Images */
-.carousel-image {
-  width: 100%;
-  height: auto;
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  object-fit: cover; /* Cover the container without distortion */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
 }
 
 .carousel-image:hover {
-  transform: scale(1.05); /* Slight enlargement on hover */
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+  transform: scale(1.05); /* Slightly enlarges the image on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Enhances shadow on hover */
 }
 
-/* Styling for Carousel Navigation Arrows */
+/* Carousel Subtitle Styling */
+.carousel-item .subtitle {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: #555; /* Adjusts the subtitle color */
+  font-weight: 600; /* Makes the text slightly bolder */
+  text-align: left; /* Ensures text is left-aligned */
+}
+
+/* Navigation Arrows Styling */
 .carousel-arrow {
   position: absolute;
   top: 50%;
@@ -347,6 +169,7 @@ body {
   border-radius: 50%;
   font-size: 1.5rem;
   z-index: 10;
+  transition: background 0.3s ease;
 }
 
 .carousel-arrow-prev {
@@ -357,7 +180,11 @@ body {
   right: 10px;
 }
 
-/* Styling for Carousel Indicators */
+.carousel-arrow:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* Carousel Indicators Styling */
 .carousel-indicators {
   position: absolute;
   bottom: 10px;
@@ -374,26 +201,102 @@ body {
   border: none;
   border-radius: 50%;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 .carousel-indicators .indicator.active {
   background: rgba(255, 255, 255, 1);
 }
 
-/* Responsive Adjustments */
+/* Responsive Adjustments for Carousel */
 @media (max-width: 768px) {
+  /* Reduce padding in carousel items */
+  .carousel-item {
+    padding: 10px;
+  }
+
+  /* Adjust font size of subtitles */
+  .carousel-item .subtitle {
+    font-size: 0.9rem;
+  }
+
+  /* Adjust navigation arrows size */
   .carousel-arrow {
     padding: 0.3rem 0.6rem;
     font-size: 1.2rem;
   }
 
-  .carousel-indicators {
-    gap: 0.3rem;
-  }
-
+  /* Adjust indicator size */
   .carousel-indicators .indicator {
     width: 8px;
     height: 8px;
   }
+
+  /* Adjust gap between indicators */
+  .carousel-indicators {
+    gap: 0.3rem;
+  }
 }
 
+/* ------------------------------
+   Other Existing Styles
+------------------------------ */
+
+/* Publication Banner Images */
+.publication-banner img {
+  /* Add styles if needed */
+}
+
+/* Slider Pagination Styles */
+.slider-pagination .slider-page {
+  background: #000000;
+}
+
+/* Equal Contribution Styles */
+.eql-cntrb { 
+  font-size: smaller;
+}
+
+/* Box Container Styles */
+.box {
+  background-color: #f9f9f9; /* Light background for contrast */
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Box Title Styles */
+.box .title.is-4 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* Box Paragraph Styles */
+.box p {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Additional Carousel Styles (Removed Duplicate Styles) */
+/* Removed .results-carousel .item and .results-carousel video to prevent conflicts */
+
+
+/* Remove unused or conflicting styles */
+/* The following styles are removed or commented out to prevent conflicts */
+/*
+.results-carousel .item {
+  margin: 5px;
+  overflow: hidden;
+  padding: 20px;
+  font-size: 0;
+}
+
+.results-carousel video {
+  margin: 0;
+}
+*/
+
+/* ------------------------------
+   End of Fixed Styles
+------------------------------ */
