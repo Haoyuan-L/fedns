@@ -200,3 +200,31 @@ body {
 .carousel__pagination .carousel__dot.is-active {
   background-color: #555;
 }
+
+/* Styling the MathJax Equations */
+.math {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.1rem; /* Adjusts the size of the equations */
+}
+
+/* Styling the Box Container for Equations */
+.box {
+  background-color: #f9f9f9; /* Light background for contrast */
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling the Problem Formulation Title */
+.box .title.is-4 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* Adjusting Paragraphs Within the Box */
+.box p {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #555;
+}

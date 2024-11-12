@@ -23,6 +23,22 @@
   <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- MathJax Configuration -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  
+  <!-- Load MathJax -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+
 
   <title>Collaboratively Learning Federated Models from Noisy Decentralized Data</title>
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
@@ -65,7 +81,7 @@
                 <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Nezihe Merve Gürel</a><sup>2</sup>,
               </span>
               <span class="author-block">
-                <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Aaqib Saeed</a><sup>2</sup>,
+                <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Aaqib Saeed</a><sup>1</sup>,
               </span>
                   </div>
 
@@ -145,8 +161,8 @@
           Three Pillars of FedNS:
         </h2>
         <ul class="feature-list has-text-left">
-          <li><strong>Noise Identification:</strong> Identifies noisy clients in the first training round (one-shot).</li>
-          <li><strong>Resilient Aggregation:</strong> Implements a strategy that minimizes the impact of noisy clients, ensuring robust model performance.</li>
+          <li><strong>Noise Identification:</strong> FedNS identifies noisy clients in the first training round (one-shot).</li>
+          <li><strong>Resilient Aggregation:</strong> A Resilient strategy that minimizes the impact of noisy clients, ensuring robust model performance.</li>
           <li><strong>Data Confidentiality:</strong> Shares only scalar gradient norms to keep data confidential.</li>
         </ul>
       </div>
@@ -172,6 +188,79 @@
 </section>
 <!-- End paper abstract -->
 
+<!-- Problem Definition Section with Mathematical Equations -->
+<section class="section hero is-small is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <div class="content">
+          <h2 class="title is-3">Problem Definition: Noisy Federated Learning</h2>
+          
+          <!-- Centered Image -->
+          <div class="has-text-centered">
+            <img src="static/images/architecture_finetune.png" alt="Mixed Video-Image Finetuning" class="center-image blend-img-background"/>
+          </div>
+          
+          <!-- Mathematical Formulation -->
+          <div class="level-set has-text-justified">
+            <div class="box">
+              <h3 class="title is-4">Problem Formulation</h3>
+              
+              <!-- Display Equation -->
+              <div class="math">
+                $$ 
+                \begin{split}
+                \min_{\theta}\mathcal{L}(\theta) &= \min_{\theta} \sum_{\substack{n \in [K] \\ \text{s.t. } D_n \text{ is clean}}} w_n \ell(\theta; D_n) + \sum_{\substack{m \in [K] \\ \text{s.t. } D_m \text{ is noisy}}} w_m \ell(\theta; D_m) \\
+                &= \min_{\theta} \sum_{\substack{n \in [K] \\ \text{s.t. } D_n \text{ is clean}}} w_n \ell(\theta; D_n) + \sum_{\substack{m \in [K] \\ \text{s.t. } D_m \text{ is noisy}}} w_m \left( \frac{|D_{m}^{\text{clean}}|}{|D_m|} \ell(\theta; D_{m}^{\text{clean}}) \right. \\
+                &\quad \left. + \frac{|D_{m}^{\text{noisy}}|}{|D_m|} \ell(\theta; D_{m}^{\text{noisy}}) \right).
+                \end{split}
+                $$
+
+                $$ 
+                D_m^{\text{noisy}} = \left\{ \eta(x, \tau, \xi) \mid x \in D_m, \tau \in \mathbf{T} \right\}.
+                $$
+
+                $$ 
+                \text{NL}_m = \frac{|D_m^{\text{noisy}}|}{|D_m|}.
+                $$
+              </div>
+              
+              <p>
+                The global objective is to minimize the loss function \(\mathcal{L}(\theta)\) by considering both clean and noisy data contributed by clients. The noise level of each client \(m\), denoted as \(\text{NL}_m\), represents the fraction of noisy data samples in the client's local dataset.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <!-- Unique ID for Second Carousel -->
+      <div id="noise_type" class="carousel results-carousel">
+        <!-- Carousel Slide 1: Density_GradNorm_CIFAR10.jpg & Density_GradNorm_PathMNIST.jpg -->
+        <div class="item">
+          <div class="columns is-mobile is-centered">
+            <div class="column is-half">
+              <img src="static/images/Density_GradNorm_CIFAR10.jpg" alt="Description for Density GradNorm CIFAR10" class="carousel-image" loading="lazy"/>
+            </div>
+            <div class="column is-half">
+              <img src="static/images/Density_GradNorm_PathMNIST.jpg" alt="Description for Density GradNorm PathMNIST" class="carousel-image" loading="lazy"/>
+            </div>
+          </div>
+          <h2 class="subtitle has-text-centered">
+            Description for Density GradNorm CIFAR10 and PathMNIST.
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End image carousel -->
 
 <!-- Image carousel -->
 <section class="hero is-small">
@@ -214,31 +303,6 @@
 </section>
 <!-- End image carousel -->
 
-
-
-
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- Youtube embed code here -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End youtube video -->
-
-
-
 <!-- Paper poster -->
 <section class="hero is-small is-light">
   <div class="hero-body">
@@ -258,7 +322,12 @@
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>BibTex Code Here</code></pre>
+      <pre><code>@article{li2024collaboratively,
+        title={Collaboratively Learning Federated Models from Noisy Decentralized Data},
+        author={Li, Haoyuan and Funk, Mathias and G{\"u}rel, Nezihe Merve and Saeed, Aaqib},
+        journal={arXiv preprint arXiv:2409.02189},
+        year={2024}
+      }</code></pre>
     </div>
 </section>
 <!--End BibTex citation -->
@@ -272,7 +341,7 @@
 
           <p>
             This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
             Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
 
