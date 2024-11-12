@@ -108,12 +108,11 @@ body {
 
 .results-carousel {
   overflow: hidden;
-  max-width: 800px; /* Set a maximum width for the carousel */
-  margin: 0 auto; /* Center the carousel horizontally */
+  max-width: 400px; /* Reduced max-width to make carousel smaller */
+  margin: 0 auto; /* Center the carousel */
   position: relative; /* To position navigation arrows and indicators */
 }
 
-/* Fix carousel item to occupy full width and prevent overlapping */
 .results-carousel .carousel-item {
   margin: 0; /* Remove margins to prevent slide overlap */
   padding: 10px; /* Adjust padding as needed */
@@ -136,7 +135,7 @@ body {
 /* Carousel Image Styling */
 .carousel-image {
   max-width: 100%; /* Ensure image doesn't exceed its container */
-  height: auto;
+  height: auto; /* Maintain aspect ratio */
   border-radius: 8px; /* Adds rounded corners */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
   object-fit: contain; /* Prevents image stretching */
@@ -160,6 +159,16 @@ body {
 @media (max-width: 768px) {
   .carousel .column {
     margin-bottom: 1rem;
+  }
+
+  /* Optional: Reduce carousel max-width on smaller screens */
+  .results-carousel {
+    max-width: 100%; /* Allow carousel to take full width on smaller screens */
+    padding: 0 10px;
+  }
+
+  .carousel-item {
+    padding: 10px;
   }
 }
 
@@ -322,7 +331,7 @@ body {
 /* Styling for Carousel Images */
 .carousel-image {
   max-width: 100%; /* Ensure image doesn't exceed its container */
-  height: auto;
+  height: auto; /* Maintain aspect ratio */
   border-radius: 8px; /* Rounded corners */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   object-fit: contain; /* Cover the container without distortion */
