@@ -228,3 +228,172 @@ body {
   font-size: 1rem;
   color: #555;
 }
+
+
+/* Styling for Section Titles */
+.section .title.is-3 {
+  font-weight: 700; /* Makes the title bold */
+  color: #333; /* Dark color for better contrast */
+  margin-bottom: 1.5rem; /* Adds space below the title */
+}
+
+/* Styling for Section Images */
+.section-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px; /* Rounded corners for a polished look */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  object-fit: cover; /* Ensures the image covers its container without distortion */
+  transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.section-image:hover {
+  transform: scale(1.05); /* Slightly enlarges the image on hover */
+}
+
+/* New Styles for Small Images in Second Section */
+.small-image {
+  max-width: 80%; /* Reduces the maximum width to 80% of its container */
+  margin: 0 auto; /* Centers the image horizontally within its column */
+}
+
+/* Styling for Descriptive Subtitles */
+.section .subtitle {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #555; /* Soft color for readability */
+  line-height: 1.5; /* Improved line spacing */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .columns.is-centered.is-vcentered {
+    flex-direction: column;
+  }
+
+  .column.is-half {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .section-image {
+    margin-bottom: 1rem;
+  }
+
+  /* Adjusting Section Titles on Smaller Screens */
+  .section .title.is-3 {
+    font-size: 1.5rem; /* Smaller font size for mobile devices */
+  }
+
+  /* Adjusting Small Image Size on Smaller Screens */
+  .small-image {
+    max-width: 90%; /* Slightly larger on smaller screens for better visibility */
+  }
+}
+
+/* Carousel Navigation Arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  z-index: 10;
+}
+
+.carousel-arrow-prev {
+  left: 10px;
+}
+
+.carousel-arrow-next {
+  right: 10px;
+}
+
+/* Styling for Carousel Container */
+.carousel {
+  position: relative; /* To position navigation arrows and indicators */
+}
+
+/* Styling for Carousel Images */
+.carousel-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  object-fit: cover; /* Cover the container without distortion */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+.carousel-image:hover {
+  transform: scale(1.05); /* Slight enlargement on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+/* Styling for Carousel Navigation Arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  z-index: 10;
+}
+
+.carousel-arrow-prev {
+  left: 10px;
+}
+
+.carousel-arrow-next {
+  right: 10px;
+}
+
+/* Styling for Carousel Indicators */
+.carousel-indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+}
+
+.carousel-indicators .indicator {
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.carousel-indicators .indicator.active {
+  background: rgba(255, 255, 255, 1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .carousel-arrow {
+    padding: 0.3rem 0.6rem;
+    font-size: 1.2rem;
+  }
+
+  .carousel-indicators {
+    gap: 0.3rem;
+  }
+
+  .carousel-indicators .indicator {
+    width: 8px;
+    height: 8px;
+  }
+}
+

@@ -201,40 +201,128 @@
             <img src="static/images/architecture_finetune.png" alt="Mixed Video-Image Finetuning" class="center-image blend-img-background"/>
           </div>
           
-          <!-- Mathematical Formulation -->
-          <div class="level-set has-text-justified">
-            <div class="box">
-              <h3 class="title is-4">Problem Formulation</h3>
-              
-              <!-- Display Equation -->
-              <div class="math">
-                $$ 
-                \begin{split}
-                \min_{\theta}\mathcal{L}(\theta) &= \min_{\theta} \sum_{\substack{n \in [K] \\ \text{s.t. } D_n \text{ is clean}}} w_n \ell(\theta; D_n) + \sum_{\substack{m \in [K] \\ \text{s.t. } D_m \text{ is noisy}}} w_m \ell(\theta; D_m) \\
-                &= \min_{\theta} \sum_{\substack{n \in [K] \\ \text{s.t. } D_n \text{ is clean}}} w_n \ell(\theta; D_n) + \sum_{\substack{m \in [K] \\ \text{s.t. } D_m \text{ is noisy}}} w_m \left( \frac{|D_{m}^{\text{clean}}|}{|D_m|} \ell(\theta; D_{m}^{\text{clean}}) \right. \\
-                &\quad \left. + \frac{|D_{m}^{\text{noisy}}|}{|D_m|} \ell(\theta; D_{m}^{\text{noisy}}) \right).
-                \end{split}
-                $$
-
-                $$ 
-                D_m^{\text{noisy}} = \left\{ \eta(x, \tau, \xi) \mid x \in D_m, \tau \in \mathbf{T} \right\}.
-                $$
-
-                $$ 
-                \text{NL}_m = \frac{|D_m^{\text{noisy}}|}{|D_m|}.
-                $$
-              </div>
-              
-              <p>
-                The global objective is to minimize the loss function \(\mathcal{L}(\theta)\) by considering both clean and noisy data contributed by clients. The noise level of each client \(m\), denoted as \(\text{NL}_m\), represents the fraction of noisy data samples in the client's local dataset.
-              </p>
+          <!-- Problem Formulation Block -->
+          <div class="box">
+            <h3 class="title is-4">Problem Formulation</h3>
+            
+            <!-- Description Paragraph -->
+            <p>
+              In an FL setup with $K$ clients, $M$ have partially noisy local datasets. Let $m$ represent noisy clients with data $D_m$ and $n$ represent clean clients with data $D_n$. Each noisy client $m$'s dataset is divided into clean $D_{m}^{\text{clean}}$ and noisy $D_{m}^{\text{noisy}}$ parts. The global objective is:
+            </p>
+            
+            <!-- Display Equation 1 -->
+            <div class="math">
+              $$
+              \begin{split}
+              \min_{\theta}\mathcal{L}(\theta) &= \min_{\theta} \hspace{-.5em} \sum_{\substack{n \in [K]\\ \textrm{s.t. } D_n \textrm{ is clean}}} \hspace{-1.5em}{w}_n\ell(\theta\text{;} D_n)\hspace{0.5em}+\hspace{-1em}\sum_{\substack{m \in [K]\\ \textrm{s.t. } D_m \textrm{ is noisy}}} \hspace{-1.5em}{w}_m{\ell}(\theta\text{;} D_m)\\
+              &= \min_{\theta} \hspace{-.5em} \sum_{\substack{n \in [K]\\ \textrm{s.t. } D_n \textrm{ is clean}}} \hspace{-1.5em}{w}_n\ell(\theta\text{;} D_n)\quad+\hspace{-1em}\sum_{\substack{m \in [K]\\ \textrm{s.t. } D_m \textrm{ is noisy}}} \hspace{-1em} {w}_m \left( \frac{\mid D_{m}^{\textrm{clean}}\mid}{\mid D_m\mid}{\ell}(\theta\text{;} D_{m}^{\textrm{clean}})\right.\\
+              &\quad\left.+\frac{\mid D_{m}^{\textrm{noisy}}\mid}{\mid D_m\mid}{\ell}(\theta\text{;} D_{m}^{\textrm{noisy}}) \right).
+              \end{split}
+              $$
             </div>
+            
+            <!-- Description Paragraph -->
+            <p>
+              The local dataset of $m$-{th} noisy client $D_m$ contains noisy local data which applies a randomly selected transformation $\tau$ from all the data transformations $\mathbf{T}$ with a specific severity level $\xi \in \{low, medium, high\}$.
+            </p>
+            
+            <!-- Display Equation 2 -->
+            <div class="math">
+              $$
+              {D}_m^{\textrm{noisy}} = \left\{\ \eta(x, \tau, \xi) \mid x \in D_m, \tau \in \mathbf{T} \right\}.
+              $$
+            </div>
+            
+            <!-- Display Equation 3 -->
+            <div class="math">
+              $$
+              \text{NL}_m = \frac{\mid{D}_m^{\textrm{noisy}}\mid}{\mid D_m\mid},
+              $$
+            </div>
+            
+            <!-- Final Description Paragraph -->
+            <p>
+              representing the fraction of noisy data samples over the entire local data of client $m$.
+            </p>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+<!-- End Problem Definition Section -->
+
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <!-- Unique ID for Noise Carousel -->
+      <div id="noise-carousel" class="carousel results-carousel" role="region" aria-label="Noise Types Carousel">
+        
+        <!-- Carousel Slide 1: Distortion Noise -->
+        <div class="item">
+          <div class="columns is-mobile is-centered">
+            <div class="column is-half">
+              <img 
+                src="static/images/Noise_Severity.jpg" 
+                srcset="
+                  static/images/Noise_Severity-small.jpg 480w,
+                  static/images/Noise_Severity-medium.jpg 768w,
+                  static/images/Noise_Severity-large.jpg 1200w
+                " 
+                sizes="(max-width: 600px) 480px, (max-width: 1200px) 768px, 1200px"
+                alt="Illustration of image noise severity levels showing low to high distortion" 
+                class="carousel-image" 
+                loading="lazy"/>
+            </div>
+          </div>
+          <h2 class="subtitle has-text-centered">
+            An example of distortion corruption (<strong>Contrast</strong>). We introduce image noise severity to quantify the extent of distortion in digital images. Severity levels are scaled from low to high, indicating the intensity of the noise. An illustration of different levels of image noise severity is shown in the above figure.
+          </h2>
+        </div>
+
+        <!-- Carousel Slide 2: Patch-based Noise -->
+        <div class="item">
+          <div class="columns is-mobile is-centered">
+            <div class="column is-half">
+              <img 
+                src="static/images/Patches_Image_Noise.jpg" 
+                srcset="
+                  static/images/Patches_Image_Noise-small.jpg 480w,
+                  static/images/Patches_Image_Noise-medium.jpg 768w,
+                  static/images/Patches_Image_Noise-large.jpg 1200w
+                " 
+                sizes="(max-width: 600px) 480px, (max-width: 1200px) 768px, 1200px"
+                alt="Example of patch-based data corruption with generative patches labeled as objects" 
+                class="carousel-image" 
+                loading="lazy"/>
+            </div>
+          </div>
+          <h2 class="subtitle has-text-centered">
+            An example of patch-based data corruption. Here, specific data samples in the client's local dataset are substituted with such patches, while the corresponding labels remain unchanged, e.g., a random generative patch has an object label assigned to it.
+          </h2>
+        </div>
+
+        <!-- Optional: Carousel Indicators -->
+        <div class="carousel-indicators">
+          <button class="indicator active" aria-label="Slide 1"></button>
+          <button class="indicator" aria-label="Slide 2"></button>
+        </div>
+
+        <!-- Optional: Carousel Navigation Arrows -->
+        <button class="carousel-arrow carousel-arrow-prev" aria-label="Previous Slide">
+          &larr;
+        </button>
+        <button class="carousel-arrow carousel-arrow-next" aria-label="Next Slide">
+          &rarr;
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End image carousel -->
+
 
 <!-- Image carousel -->
 <section class="hero is-small">
@@ -262,61 +350,68 @@
 </section>
 <!-- End image carousel -->
 
-<!-- Image carousel -->
-<section class="hero is-small">
+<!-- First Image Section -->
+<section class="section hero is-small is-light">
   <div class="hero-body">
-    <div class="container">
-      <!-- Unique ID for Second Carousel -->
-      <div id="results-carousel-2" class="carousel results-carousel">
-        <!-- Carousel Slide 1: Density_GradNorm_CIFAR10.jpg & Density_GradNorm_PathMNIST.jpg -->
-        <div class="item">
-          <div class="columns is-mobile is-centered">
-            <div class="column is-half">
-              <img src="static/images/Density_GradNorm_CIFAR10.jpg" alt="Description for Density GradNorm CIFAR10" class="carousel-image" loading="lazy"/>
-            </div>
-            <div class="column is-half">
-              <img src="static/images/Density_GradNorm_PathMNIST.jpg" alt="Description for Density GradNorm PathMNIST" class="carousel-image" loading="lazy"/>
-            </div>
-          </div>
-          <h2 class="subtitle has-text-centered">
-            Description for Density GradNorm CIFAR10 and PathMNIST.
-          </h2>
+    <div class="container is-max-desktop">
+      
+      <!-- Section Title -->
+      <div class="has-text-centered mb-5">
+        <h2 class="title is-3">Gradient Norm Analysis</h2>
+      </div>
+      
+      <div class="columns is-centered is-vcentered">
+        <!-- First Image -->
+        <div class="column is-half">
+          <img src="static/images/Density_GradNorm_CIFAR10.jpg" alt="Visualization of Gradient Norms on CIFAR-10 Dataset" class="section-image" loading="lazy"/>
         </div>
-
-        <!-- Carousel Slide 2: Qualitative_Analysis_Clean.jpg & Qualitative_Analysis_Noisy.jpg -->
-        <div class="item">
-          <div class="columns is-mobile is-centered">
-            <div class="column is-half">
-              <img src="static/images/Qualitative_Analysis_Clean.jpg" alt="Description for Qualitative Analysis Clean" class="carousel-image" loading="lazy"/>
-            </div>
-            <div class="column is-half">
-              <img src="static/images/Qualitative_Analysis_Noisy.jpg" alt="Description for Qualitative Analysis Noisy" class="carousel-image" loading="lazy"/>
-            </div>
-          </div>
-          <h2 class="subtitle has-text-centered">
-            Description for Qualitative Analysis Clean and Noisy.
-          </h2>
+        <!-- Second Image -->
+        <div class="column is-half">
+          <img src="static/images/Density_GradNorm_PathMNIST.jpg" alt="Visualization of Gradient Norms on PathMNIST Dataset" class="section-image" loading="lazy"/>
         </div>
+      </div>
+      <!-- Description Below Images -->
+      <div class="content has-text-centered">
+        <h2 class="subtitle">
+          As shown in the above figures, we identify that the gradient norm effectively encapsulates the relationship between input features and the model’s output. We apply K-means clustering on all client gradient norm vectors to distinguish two clusters. We then compute each cluster's centroid, categorizing the higher centroid value as 'clean' and the other as 'noisy'.
+        </h2>
       </div>
     </div>
   </div>
 </section>
-<!-- End image carousel -->
+<!-- End First Image Section -->
 
-<!-- Paper poster -->
-<section class="hero is-small is-light">
+
+<!-- Second Image Section -->
+<section class="section hero is-small is-light">
   <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
+    <div class="container is-max-desktop">
+      
+      <!-- Section Title -->
+      <div class="has-text-centered mb-5">
+        <h2 class="title is-3">Qualitative Analysis of Clusters</h2>
+      </div>
+      
+      <div class="columns is-centered is-vcentered">
+        <!-- First Image -->
+        <div class="column is-half">
+          <img src="static/images/Qualitative_Analysis_Clean.jpg" alt="Qualitative Analysis of Clean Data" class="section-image small-image" loading="lazy"/>
+        </div>
+        <!-- Second Image -->
+        <div class="column is-half">
+          <img src="static/images/Qualitative_Analysis_Noisy.jpg" alt="Qualitative Analysis of Noisy Data" class="section-image small-image" loading="lazy"/>
+        </div>
+      </div>
+      <!-- Description Below Images -->
+      <div class="content has-text-centered">
+        <h2 class="subtitle">
+          We randomly sampled 9 images from both clean (left) and noisy (right) clusters identified in the first training round with FedNS. In the figures, the images sampled from the noisy cluster are corrupted by a mixture of noises. The image with a <span class="has-text-danger">red</span> grid denotes the noisy image, whereas the image with a <span class="has-text-success">green</span> grid denotes the clean image.
+        </h2>
       </div>
     </div>
-  </section>
-<!--End paper poster -->
-
+  </div>
+</section>
+<!-- End Second Image Section -->
 
 <!--BibTex citation -->
   <section class="section" id="BibTeX">
